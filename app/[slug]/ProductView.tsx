@@ -53,32 +53,39 @@ export default function ProductView({ product }: { product: Product }) {
                             </div>
                         )}
 
-                        <div className="w-full min-h-[360px] lg:h-[calc(100vh-200px)] lg:max-h-[650px] rounded-[2.5rem] overflow-hidden bg-white border border-[#E2E8F0] shadow-sm hover:shadow-[0_24px_60px_rgba(30,58,138,0.06)] hover:border-[#1E3A8A]/10 transition-all duration-500 relative flex flex-wrap items-center justify-center p-8 group">
+                        <div className="w-full min-h-[360px] lg:h-[calc(100vh-200px)] lg:max-h-[650px] rounded-[2.5rem] overflow-hidden bg-white border border-[#E2E8F0] shadow-sm hover:shadow-[0_24px_60px_rgba(30,58,138,0.06)] hover:border-[#1E3A8A]/10 transition-all duration-500 relative group">
                             
                              {product.cleavageImages && product.cleavageImages.length > 0 ? (
-                                <div className="flex flex-col gap-6 w-full items-center justify-center h-full overflow-y-auto custom-scrollbar p-2">
+                                product.cleavageImages.length === 1 ? (
+                                    <Image
+                                        src={product.cleavageImages[0]}
+                                        alt={`${product.name} Cleavage Diagram`}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                        priority
+                                    />
+                                ) : (
+                                <div className="absolute inset-0 flex flex-col gap-0 w-full items-center overflow-y-auto custom-scrollbar">
                                     {product.cleavageImages.map((imgSrc, index) => (
-                                        <div key={index} className="relative w-full h-[180px] sm:h-[220px] shrink-0">
+                                        <div key={index} className="relative w-full h-[280px] sm:h-[380px] shrink-0">
                                             <Image
                                                 src={imgSrc}
                                                 alt={`${product.name} Cleavage Site ${index + 1}`}
                                                 fill
-                                                className="object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.03]"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                                priority={index === 0}
                                             />
                                         </div>
                                     ))}
                                 </div>
+                                )
                             ) : product.image ? (
                                 <>
                                     <Image
                                         src={product.image}
                                         alt={product.name}
                                         fill
-                                        className={`transition-transform duration-700 group-hover:scale-105 ${
-                                            product.image.startsWith('/')
-                                                ? 'object-contain p-8'
-                                                : 'object-cover'
-                                        }`}
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         priority
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
     Zap, Rocket, Users2, ShieldCheck,
     ChevronRight, ArrowRight, Quote, HeartHandshake,
-    Microscope, Briefcase, GraduationCap
+    Briefcase, Plus, CheckCircle2, Heart, Award, Wallet
 } from "lucide-react";
 import Image from "next/image";
 
@@ -65,55 +65,171 @@ const coreValues = [
     }
 ];
 
+// Benefits Data
+const benefits = [
+    {
+        icon: <Heart className="w-6 h-6 text-[#1E3A8A]" />,
+        title: "Health & Wellbeing",
+        desc: "Comprehensive medical coverage, mental health resources, and wellness programs designed for you and your family."
+    },
+    {
+        icon: <Wallet className="w-6 h-6 text-[#1E3A8A]" />,
+        title: "Financial Security",
+        desc: "Competitive compensation, equity opportunities, and robust retirement planning with company match."
+    },
+    {
+        icon: <Award className="w-6 h-6 text-[#1E3A8A]" />,
+        title: "Continuous Learning",
+        desc: "Generous stipends for conferences, courses, and certifications to keep you at the forefront of science."
+    },
+    {
+        icon: <Users2 className="w-6 h-6 text-[#1E3A8A]" />,
+        title: "Work-Life Integration",
+        desc: "Flexible working hours and generous PTO to ensure you have time to recharge and pursue passions outside the lab."
+    }
+];
+
 export default function CareersContent() {
     return (
         <section className="bg-white font-outfit overflow-hidden">
 
             {/* 1. HERO SECTION */}
-            <div className="relative pt-24 pb-32 lg:pt-32 lg:pb-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FFF7F2] to-white">
+            <div className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FFF7F2] to-white">
                 {/* Abstract Background Vectors */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#F26522]/10 rounded-full blur-3xl mix-blend-multiply" />
                     <div className="absolute top-1/2 -left-24 w-72 h-72 bg-[#F26522]/5 rounded-full blur-3xl mix-blend-multiply" />
                 </div>
 
-                <div className="max-w-5xl mx-auto text-center relative z-10">
-                    <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF0E6] border border-[#F26522]/20 text-[#F26522] text-sm font-bold uppercase tracking-widest mb-8">
-                            <Rocket className="w-4 h-4" />
-                            Join Our Mission
-                        </div>
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#1E3A8A] tracking-tight mb-8">
-                            Build the <span className="text-[#F26522] relative">
-                                Future
-                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#F26522]/30" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" />
-                                </svg>
-                            </span> of Biotech
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-[#475569] leading-relaxed max-w-3xl mx-auto font-light mb-12">
-                            We're looking for visionary scientists, engineers, and innovators to help us advance life sciences and create a healthier, sustainable world.
-                        </p>
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF0E6] border border-[#F26522]/20 text-[#F26522] text-sm font-bold uppercase tracking-widest mb-8">
+                                <Rocket className="w-4 h-4" />
+                                Join Our Mission
+                            </div>
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#1E3A8A] tracking-tight mb-8">
+                                Build the <br />
+                                <span className="text-[#F26522] relative inline-block">
+                                    Future
+                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#F26522]/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" />
+                                    </svg>
+                                </span> of Biotech
+                            </h1>
+                            <p className="text-xl text-[#475569] leading-relaxed max-w-xl font-medium mb-10">
+                                We're looking for visionary scientists, engineers, and innovators to help us advance life sciences and create a healthier, sustainable world.
+                            </p>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a href="#open-roles" className="w-full sm:w-auto px-8 py-4 bg-[#F26522] text-white font-bold rounded-full hover:bg-[#E85D1C] hover:shadow-xl hover:shadow-[#F26522]/20 transition-all flex items-center justify-center gap-2 group">
-                                View Open Roles
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </a>
-                            <a href="#life-at-provis" className="w-full sm:w-auto px-8 py-4 bg-white text-[#1E3A8A] font-bold rounded-full hover:bg-gray-50 border border-[#E2E8F0] shadow-sm transition-all flex items-center justify-center gap-2">
-                                Life at Provis
-                            </a>
-                        </div>
-                    </motion.div>
+                            <div className="flex flex-col sm:flex-row items-start gap-4">
+                                <a href="#open-roles" className="w-full sm:w-auto px-8 py-4 bg-[#F26522] text-white font-bold rounded-full hover:bg-[#E85D1C] hover:shadow-[0_8px_30px_rgba(242,101,34,0.3)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group">
+                                    View Open Roles
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </a>
+                                <a href="#life-at-provis" className="w-full sm:w-auto px-8 py-4 bg-white text-[#1E3A8A] font-bold rounded-full hover:bg-gray-50 border border-[#E2E8F0] shadow-sm transition-all flex items-center justify-center gap-2">
+                                    Life at Provis
+                                </a>
+                            </div>
+                        </motion.div>
+                        
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.2 }}
+                            className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl"
+                        >
+                            <Image
+                                src="/people.png"
+                                alt="Provis Biolabs Team"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/40 to-transparent pointer-events-none" />
+                        </motion.div>
+                    </div>
                 </div>
             </div>
 
-            {/* 2. CORE VALUES GRID */}
-            <div id="life-at-provis" className="py-24 bg-white relative z-20 -mt-10">
+            {/* 2. LIFE AT PROVIS (Visual Grid) */}
+            <div id="life-at-provis" className="py-24 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <h2 className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">Our Culture</h2>
+                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E3A8A] mb-6">Life at Provis</h3>
+                        <p className="text-lg text-[#64748B] font-medium leading-relaxed">
+                            More than just a laboratory. We provide an ecosystem designed to accelerate your potential, foster groundbreaking discoveries, and support your overall well-being.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+                        {/* Large Main Feature */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="md:col-span-8 relative rounded-[2.5rem] overflow-hidden group h-[300px] md:h-full"
+                        >
+                            <Image
+                                src="/about-lab.webp"
+                                alt="State-of-the-art Laboratory"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 via-[#1E3A8A]/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
+                                <h4 className="text-white text-2xl md:text-3xl font-bold mb-2">State-of-the-art Facilities</h4>
+                                <p className="text-blue-100 font-medium max-w-md">Work with cutting-edge equipment in our modern, purpose-built R&D and GMP manufacturing centers.</p>
+                            </div>
+                        </motion.div>
+
+                        <div className="md:col-span-4 flex flex-col gap-6">
+                            {/* Top Right */}
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="relative rounded-[2.5rem] overflow-hidden group h-[300px] md:h-[calc(50%-12px)] bg-[#F8FAFC]"
+                            >
+                                <Image
+                                    src="/quality-lab.webp"
+                                    alt="Quality Control"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 to-transparent" />
+                                <div className="absolute bottom-0 left-0 p-8 w-full">
+                                    <h4 className="text-white text-xl font-bold mb-1">Uncompromising Quality</h4>
+                                    <p className="text-blue-100/90 text-sm font-medium">Define global standards.</p>
+                                </div>
+                            </motion.div>
+
+                            {/* Bottom Right */}
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="relative rounded-[2.5rem] overflow-hidden h-[300px] md:h-[calc(50%-12px)] bg-gradient-to-br from-[#F26522] to-[#FF8C55] p-8 flex flex-col justify-end text-white shadow-xl"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -translate-y-10 translate-x-10" />
+                                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 backdrop-blur-sm">
+                                    <Users2 className="w-6 h-6 text-white" />
+                                </div>
+                                <h4 className="text-2xl font-bold mb-2">A Global Team</h4>
+                                <p className="text-white/90 font-medium text-sm">Collaborate with brilliantly diverse minds from over 10 countries.</p>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* 3. CORE VALUES GRID */}
+            <div className="py-24 bg-[#F8FAFC]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-black text-[#1E3A8A] mb-4">Why Work With Us?</h2>
-                        <p className="text-lg text-[#64748B] max-w-2xl mx-auto">More than just a laboratory. We provide an ecosystem designed to accelerate your potential and foster groundbreaking discoveries.</p>
+                        <h2 className="text-3xl sm:text-4xl font-black text-[#1E3A8A] mb-4">Our Core Values</h2>
                     </div>
 
                     <motion.div
@@ -121,27 +237,61 @@ export default function CareersContent() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
-                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
                     >
                         {coreValues.map((value, idx) => (
                             <motion.div
                                 key={idx}
                                 variants={fadeInUp}
-                                className="bg-white p-8 rounded-3xl border border-[#E2E8F0] hover:border-[#F26522]/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
+                                className="bg-white p-8 rounded-[2rem] border border-[#E2E8F0] hover:border-[#F26522]/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
                             >
                                 <div className="w-16 h-16 rounded-2xl bg-[#FFF7F2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                     {value.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-[#1E3A8A] mb-3">{value.title}</h3>
-                                <p className="text-[#64748B] leading-relaxed">{value.desc}</p>
+                                <p className="text-[#64748B] text-sm font-medium leading-relaxed">{value.desc}</p>
                             </motion.div>
                         ))}
                     </motion.div>
                 </div>
             </div>
 
-            {/* 3. TESTIMONIALS (Out of the Box Design) */}
-            <div className="py-24 bg-[#FAFAFA] border-y border-[#E2E8F0] relative overflow-hidden">
+            {/* 4. WELLBEING & BENEFITS */}
+            <div className="py-24 bg-white border-t border-[#E2E8F0]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-12 gap-16 items-start">
+                        <div className="lg:col-span-5 lg:sticky lg:top-32">
+                            <h2 className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">Rewards & Wellness</h2>
+                            <h3 className="text-4xl sm:text-5xl font-black text-[#1E3A8A] mb-6 leading-tight">Supporting your life, inside and out.</h3>
+                            <p className="text-[#64748B] text-lg font-medium leading-relaxed mb-8">
+                                We believe that groundbreaking science requires a foundation of personal wellbeing and security. Our comprehensive benefits package is designed to support you at every stage of your life and career.
+                            </p>
+                        </div>
+
+                        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                            {benefits.map((benefit, idx) => (
+                                <motion.div 
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="bg-[#F8FAFC] border border-[#E2E8F0] p-8 rounded-[2rem] hover:bg-white hover:shadow-lg transition-all duration-300"
+                                >
+                                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center mb-6">
+                                        {benefit.icon}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-[#1E3A8A] mb-3">{benefit.title}</h4>
+                                    <p className="text-[#64748B] font-medium leading-relaxed text-sm">{benefit.desc}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* 5. TESTIMONIALS (Out of the Box Design) */}
+            <div className="py-24 bg-[#FAFAFA] border-t border-[#E2E8F0] relative overflow-hidden">
                 {/* Large decorative quote mark */}
                 <div className="absolute -top-10 -left-10 text-[#F26522]/5">
                     <Quote className="w-64 h-64 rotate-180" />
@@ -194,7 +344,7 @@ export default function CareersContent() {
                 </div>
             </div>
 
-            {/* 4. OPEN ROLES CTA */}
+            {/* 6. OPEN ROLES CTA */}
             <div id="open-roles" className="py-32 bg-white relative">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div

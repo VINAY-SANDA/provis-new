@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CheckCircle2, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
@@ -24,27 +25,46 @@ export default function BiosimilarsContent() {
                         backgroundSize: "40px 40px",
                     }}
                 />
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <motion.p {...fade()} className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">
-                        Products
-                    </motion.p>
-                    <motion.h1 {...fade(0.1)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1E3A8A] leading-tight mb-4">
-                        Biosimilars
-                    </motion.h1>
-                    <motion.p {...fade(0.2)} className="text-xl text-[#475569] font-bold max-w-2xl leading-relaxed mb-6">
-                        End-to-End Expertise for Biosimilar Development
-                    </motion.p>
-                    <motion.p {...fade(0.3)} className="text-base text-[#64748B] max-w-3xl leading-relaxed mb-10">
-                        Provis offers comprehensive biosimilar development services spanning the complete product lifecycle from early discovery through commercial manufacturing. Our capabilities in Microbial (E. coli) and Mammalian (CHO) expression systems enable us to support diverse therapeutic proteins across multiple complexity levels and therapeutic areas.
-                    </motion.p>
-                    <motion.div {...fade(0.4)} className="flex flex-wrap gap-3">
-                        <Link href="/contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-[#F26522] hover:bg-[#d95a1e] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(242,101,34,0.3)]">
-                            Request More Info →
-                        </Link>
-                        <Link href="/products" className="px-7 py-3.5 rounded-xl text-sm font-bold border-2 border-[#1E3A8A] text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white transition-all duration-300">
-                            All Products
-                        </Link>
-                    </motion.div>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="max-w-3xl">
+                            <motion.p {...fade()} className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">
+                                Products
+                            </motion.p>
+                            <motion.h1 {...fade(0.1)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1E3A8A] leading-tight mb-4">
+                                Biosimilars
+                            </motion.h1>
+                            <motion.p {...fade(0.2)} className="text-xl text-[#475569] font-bold leading-relaxed mb-6">
+                                End-to-End Expertise for Biosimilar Development
+                            </motion.p>
+                            <motion.p {...fade(0.3)} className="text-base text-[#64748B] leading-relaxed mb-10">
+                                Provis offers comprehensive biosimilar development services spanning the complete product lifecycle from early discovery through commercial manufacturing. Our capabilities in Microbial (E. coli) and Mammalian (CHO) expression systems enable us to support diverse therapeutic proteins across multiple complexity levels and therapeutic areas.
+                            </motion.p>
+                            <motion.div {...fade(0.4)} className="flex flex-wrap gap-3">
+                                <Link href="/contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-[#F26522] hover:bg-[#d95a1e] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(242,101,34,0.3)]">
+                                    Request More Info →
+                                </Link>
+                                <Link href="/products" className="px-7 py-3.5 rounded-xl text-sm font-bold border-2 border-[#1E3A8A] text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white transition-all duration-300">
+                                    All Products
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="flex justify-center lg:justify-end items-center w-full">
+                            <div className="relative w-[85%] sm:w-[70%] md:w-[60%] lg:w-[420px] aspect-[4/3] 
+                   rounded-3xl bg-white shadow-xl overflow-hidden
+                  transition-transform duration-300 hover:scale-105">
+                                <Image
+                                    src="/products/biosimilars.png"
+                                    alt="Biosimilars Development"
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 80vw, 420px"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -72,7 +92,7 @@ export default function BiosimilarsContent() {
                                     </li>
                                 ))}
                             </ul>
-                           
+
                         </motion.div>
 
                         {/* Stats panel */}
@@ -94,6 +114,8 @@ export default function BiosimilarsContent() {
                     </div>
                 </div>
             </section>
+
+          
 
             {/* ── Integrated R&D Platform ──────────── */}
             <section className="py-20 bg-[#F8FAFC]">
@@ -258,7 +280,7 @@ export default function BiosimilarsContent() {
                     </div>
                 </div>
             </section>
-            
+
             {/* ── Business Model ───────────────────── */}
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

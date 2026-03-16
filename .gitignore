@@ -102,32 +102,14 @@ $RECYCLE.BIN/
 # yarn.lock           # if using npm or pnpm
 # pnpm-lock.yaml      # if using npm or yarn
 
-# ── Images ────────────────────────────────────────────────────────────────────
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.webp
-*.ico
-*.bmp
-*.tiff
-*.tif
-*.avif
-*.heic
-*.heif
+# ── Images & Videos ──────────────────────────────────────────────────────────
+# NOTE: public/ assets ARE committed — they are required for the deployed site.
+# Only exclude large binary files that should NOT be in the repo.
+# (If you want to exclude specific large assets, add them individually below.)
 
-# ── Videos ────────────────────────────────────────────────────────────────────
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.webm
-*.wmv
-*.flv
-*.m4v
-*.ogv
-*.3gp
+# Exclude AI artifact screenshots (not needed in repo)
+.gemini/
+.antigravity/
 
 # ── Audio ─────────────────────────────────────────────────────────────────────
 *.mp3

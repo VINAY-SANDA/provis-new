@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Globe, Microscope, Handshake, UsersRound, Target } from "lucide-react";
+import { Target } from "lucide-react";
+import Image from "next/image";
 
 export default function MissionQuote() {
     return (
@@ -57,52 +58,70 @@ export default function MissionQuote() {
                 </motion.div>
             </div>
 
-            {/* Stats - moved from global reach to split content better */}
+            {/* Stats - split layout: image left, stats right */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 lg:mt-32 border-t border-[#E2E8F0] pt-16 lg:pt-24">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    {/* Left: Image */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative w-full h-[380px] sm:h-[460px] lg:h-[520px] rounded-[2rem] overflow-hidden"
                     >
-                        <Microscope className="w-6 h-6 sm:w-8 sm:h-8 text-[#E8721A] mb-4 sm:mb-6" strokeWidth={1.5} />
-                        <div className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">20+</div>
-                        <div className="text-[#94A3B8] font-medium">products in portfolio</div>
+                        <Image
+                            src="/quality-lab.webp"
+                            alt="Provis Biolabs Products"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <Handshake className="w-6 h-6 sm:w-8 sm:h-8 text-[#E8721A] mb-4 sm:mb-6" strokeWidth={1.5} />
-                        <div className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">50+</div>
-                        <div className="text-[#94A3B8] font-medium">Pharma & Biopharma Partners</div>
-                    </motion.div>
+                    {/* Right: 2x2 Stats */}
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-12">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            className="border-b border-[#E2E8F0] pb-10"
+                        >
+                            <div className="text-5xl sm:text-6xl font-bold tracking-tight text-[#1E3A8A] mb-3">20+</div>
+                            <div className="text-[#F26522] font-bold tracking-wide text-sm uppercase">Products in Portfolio</div>
+                        </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                    >
-                        <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-[#E8721A] mb-4 sm:mb-6" strokeWidth={1.5} />
-                        <div className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">10+</div>
-                        <div className="text-[#94A3B8] font-medium">Distribution Partners</div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="border-b border-[#E2E8F0] pb-10"
+                        >
+                            <div className="text-5xl sm:text-6xl font-bold tracking-tight text-[#1E3A8A] mb-3">50+</div>
+                            <div className="text-[#F26522] font-bold tracking-wide text-sm uppercase">Pharma &amp; Biopharma Partners</div>
+                        </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        <UsersRound className="w-6 h-6 sm:w-8 sm:h-8 text-[#E8721A] mb-4 sm:mb-6" strokeWidth={1.5}/>
-                        <div className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">130+</div>
-                        <div className="text-[#94A3B8] font-medium">Team members</div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                        >
+                            <div className="text-5xl sm:text-6xl font-bold tracking-tight text-[#1E3A8A] mb-3">10+</div>
+                            <div className="text-[#F26522] font-bold tracking-wide text-sm uppercase">Distribution Partners</div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            <div className="text-5xl sm:text-6xl font-bold tracking-tight text-[#1E3A8A] mb-3">130+</div>
+                            <div className="text-[#F26522] font-bold tracking-wide text-sm uppercase">Team Members</div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

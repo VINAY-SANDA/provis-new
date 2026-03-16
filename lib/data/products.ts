@@ -105,7 +105,7 @@ export const products: Product[] = [
             { label: 'SDS', url: '#' },
             { label: 'AOF Certificate', url: '#' }
         ],
-        cleavageImages: ['/products/cleavage/provinase.png']
+        cleavageImages: ['/products/cleavage/provinasev2.png']
     },
     {
         id: '4',
@@ -144,7 +144,7 @@ export const products: Product[] = [
             { label: 'Protocol Guide', url: '#' },
             { label: 'Product Flyer', url: '#' }
         ],
-        cleavageImages: ['/products/cleavage/pngase-f.png']
+        cleavageImages: ['/products/cleavage/pngase-fv2.png']
     },
     {
         id: '6',
@@ -241,7 +241,7 @@ export const products: Product[] = [
             storage: '2-8°C',
             formulation: 'Liquid'
         },
-        cleavageImages: ['/products/cleavage/recombinant-albumin.png']
+        cleavageImages: ['/products/cleavage/recombinant-albuminv2.png']
     },
     {
         id: '10',
@@ -265,7 +265,7 @@ export const products: Product[] = [
             storage: '-20°C',
             formulation: 'Lyophilized'
         },
-        cleavageImages: ['/products/cleavage/trypsin-1.png']
+        cleavageImages: ['/products/cleavage/trypsin.png']
     },
     {
         id: '11',
@@ -288,7 +288,7 @@ export const products: Product[] = [
             storage: '-20°C',
             formulation: 'Stability Buffer'
         },
-        cleavageImages: ['/products/cleavage/carboxypeptidase-b-1.png']
+        cleavageImages: ['/products/cleavage/carboxypeptidase-bv2.png']
     },
     {
         id: '12',
@@ -311,7 +311,7 @@ export const products: Product[] = [
             storage: '-20°C',
             formulation: 'Carrier-free'
         },
-        cleavageImages: ['/products/cleavage/streptavidin.png']
+        cleavageImages: ['/products/cleavage/streptavidinv2.png']
     },
     {
         id: '13',
@@ -345,7 +345,7 @@ export const products: Product[] = [
             formulation: 'Complete reaction in ~10 mins'
         },
         workflow: ['Protein Prep', 'Flash Enzyme Addition', 'Rapid Incubation (10m)', 'Direct Analytics Injection'],
-        cleavageImages: ['/products/cleavage/pngase-f-flash.png']
+        cleavageImages: ['/products/cleavage/pngase-f-flashv2.png']
     },
     {
         id: '14',
@@ -368,7 +368,7 @@ export const products: Product[] = [
             storage: '-20°C',
             formulation: 'Glycerol-free possible'
         },
-        cleavageImages: ['/products/cleavage/enterokinase.png']
+        cleavageImages: ['/products/cleavage/enterokinasev2.png']
     },
     {
         id: '15',
@@ -392,7 +392,7 @@ export const products: Product[] = [
             storage: '-20°C',
             formulation: 'Stability Buffer'
         },
-        cleavageImages: ['/products/cleavage/kex2-protease-1.png']
+        cleavageImages: ['/products/cleavage/kex2-proteasev2.png']
     }
 ];
 

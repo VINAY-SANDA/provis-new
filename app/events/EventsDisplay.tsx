@@ -69,7 +69,7 @@ const eventItems: EventItem[] = [
         location: "Mumbai, India",
         booth: "Booth M17",
         type: "Workshop",
-        image: "/events/biologics.jpg",
+        image: "/events/biologicsv2.jpg",
         status: "past",
     },
     {
@@ -99,7 +99,7 @@ const eventItems: EventItem[] = [
         location: "Düsseldorf, Germany",
         booth: "Germany Pavilion",
         type: "Exhibition",
-        image: "/events/medica.jpg",
+        image: "/events/medica.png",
         status: "past",
     },
     {

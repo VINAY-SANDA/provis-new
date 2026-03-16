@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CheckCircle2, FlaskConical, Layers, Link as LinkIcon } from "lucide-react";
+import Image from "next/image";
 
 const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
@@ -60,26 +61,43 @@ export default function PeptidesContent() {
                     }}
                 />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <motion.p {...fade()} className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">Products</motion.p>
-                    <motion.h1 {...fade(0.1)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1E3A8A] leading-tight mb-4">
-                        Synthetic Peptides
-                    </motion.h1>
-                    <motion.p {...fade(0.2)} className="text-sm font-bold tracking-widest uppercase text-[#94A3B8] mb-8">Custom Peptide Synthesis</motion.p>
-                    <motion.div {...fade(0.3)} className="space-y-4 text-[#475569] text-base leading-relaxed max-w-4xl mb-10">
-                        <p>Our reliable peptide synthesis services cover everything from peptide modifications to high-throughput synthesis and peptide library screening.</p>
-                        <p>With GMP manufacturing facilities and a state-of-the-art R&amp;D laboratory, the highest quality custom peptide synthesis is provided, ensuring a purity level of <strong className="text-[#1E3A8A]">&gt;99%</strong>.</p>
-                        <p>Peptide synthesis services are offered on both research and commercial scales to major pharmaceutical companies, consistently meeting the highest standards for customized services, product quality and technical expertise.</p>
-                        <p>Our services are delivered across various therapeutic areas, including Oncology, Metabolic Disorders, Infectious Diseases, Cardiovascular Health, Neurological Disorders and Immunotherapy.</p>
-                        <p>Peptide synthesis is conducted using advanced equipment at our facility and with a dedicated team of chemists, the growing demand for peptides in drug discovery research and biological applications is efficiently met.</p>
-                    </motion.div>
-                    <motion.div {...fade(0.4)} className="flex flex-wrap gap-3 mb-8">
-                        <Link href="/contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-[#F26522] hover:bg-[#d95a1e] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(242,101,34,0.3)]">
-                            Request More Info →
-                        </Link>
-                        <Link href="/products" className="px-7 py-3.5 rounded-xl text-sm font-bold border-2 border-[#1E3A8A] text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white transition-all duration-300">
-                            All Products
-                        </Link>
-                    </motion.div>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="max-w-3xl">
+                            <motion.p {...fade()} className="text-sm font-bold tracking-widest uppercase text-[#F26522] mb-3">Products</motion.p>
+                            <motion.h1 {...fade(0.1)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1E3A8A] leading-tight mb-4">
+                                Synthetic Peptides
+                            </motion.h1>
+                            <motion.p {...fade(0.2)} className="text-xl text-[#475569] font-bold leading-relaxed mb-6">
+                                Custom Peptide Synthesis
+                            </motion.p>
+                            <motion.div {...fade(0.3)} className="space-y-4 text-[#475569] text-base leading-relaxed mb-10">
+                                <p>Our reliable peptide synthesis services cover everything from peptide modifications to high-throughput synthesis and peptide library screening.</p>
+                                <p>With GMP manufacturing facilities and a state-of-the-art R&amp;D laboratory, the highest quality custom peptide synthesis is provided, ensuring a purity level of <strong className="text-[#1E3A8A]">&gt;99%</strong>.</p>
+                            </motion.div>
+                            <motion.div {...fade(0.4)} className="flex flex-wrap gap-3">
+                                <Link href="/contact" className="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-[#F26522] hover:bg-[#d95a1e] transition-all duration-300 hover:shadow-[0_8px_24px_rgba(242,101,34,0.3)]">
+                                    Request More Info →
+                                </Link>
+                                <Link href="/products" className="px-7 py-3.5 rounded-xl text-sm font-bold border-2 border-[#1E3A8A] text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white transition-all duration-300">
+                                    All Products
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="flex justify-center lg:justify-end items-center w-full">
+                            <div className="relative w-[85%] sm:w-[70%] md:w-[60%] lg:w-[420px] aspect-[4/3]
+                   rounded-3xl bg-white shadow-xl overflow-hidden
+                  transition-transform duration-300 hover:scale-105">
+                                <Image
+                                    src="/products/syntheticpeptides.png"
+                                    alt="Synthetic Peptides"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 80vw, 420px"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -116,12 +134,7 @@ export default function PeptidesContent() {
                                 className="bg-[#FAFAFA] border border-[#E2E8F0] rounded-2xl overflow-hidden hover:shadow-[0_12px_40px_rgba(30,58,138,0.08)] hover:border-[#F26522]/30 transition-all duration-500 group"
                             >
                                 {/* Image placeholder */}
-                                <div className="w-full h-44 bg-gradient-to-br from-[#F8FAFC] to-[#EFF6FF] flex flex-col items-center justify-center border-b border-[#E2E8F0] group-hover:border-[#F26522]/20 transition-colors relative">
-                                    <div className="opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 mb-4 bg-white p-4 rounded-2xl shadow-sm border border-blue-100">
-                                        {s.icon}
-                                    </div>
-                                    <span className="text-[9px] font-bold px-3 py-1 rounded bg-white text-[#94a3b8] uppercase tracking-widest border border-[#E2E8F0]">Process View</span>
-                                </div>
+                               
                                 <div className="p-7">
                                     <h3 className="font-bold text-[#1E3A8A] mb-3 leading-tight">{s.name}</h3>
                                     <p className="text-sm text-[#64748B] leading-relaxed">{s.desc}</p>

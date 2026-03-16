@@ -17,8 +17,6 @@ export const navItems: NavItem[] = [
             { name: 'Our Founder', href: '/about#founder', desc: 'Meet the leadership' },
             { name: 'Company', href: '/about#about', desc: 'Who we are & our story' },
             { name: 'Vision & Mission', href: '/about#about-purpose', desc: 'Our purpose and direction' },
-            // { name: 'Our Values', href: '/about#about-values', desc: 'The PROVIS principles' },
-            // { name: 'Responsibility', href: '/about#about-csr', desc: 'Corporate Social Responsibility' },
         ],
     },
     {
