@@ -4,9 +4,8 @@ import Footer from "../components/Footer";
 import BiosimilarsContent from "./BiosimilarsContent";
 
 export const metadata: Metadata = {
-    title: "Biosimilars | Provis Biolabs",
-    description:
-        "End-to-End expertise for biosimilar development. Comprehensive development services spanning the complete product lifecycle — from early discovery through commercial manufacturing.",
+    title: "Biosimilar Development & Analytical Characterization | Provis Biolabs",
+    description: "End-to-End expertise in Biosimilar development. Provis Biolabs provides comprehensive services spanning the complete product lifecycle — from discovery and molecular characterization to commercial manufacturing.",
 };
 
 export default function BiosimilarsPage() {

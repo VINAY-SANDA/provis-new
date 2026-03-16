@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import SciencePageContent from "./SciencePageContent";
 
 export const metadata: Metadata = {
-    title: "Science & Technology | Provis Biolabs",
-    description: "Discover Provis Biolabs' research focus, specialized technologies, capabilities, and our cutting-edge development pipeline for biologics and bioreagents.",
+    title: "Advanced Biologics Research & Development Capabilities | Provis Biolabs",
+    description: "Explore the cutting-edge science at Provis Biolabs. From specialized expression systems to advanced bioprocess development, learn how our technology drives the future of biologics.",
 };
 
 export default function SciencePage() {

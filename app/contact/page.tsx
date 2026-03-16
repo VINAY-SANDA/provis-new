@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import ContactContent from "./ContactContent";
 
 export const metadata: Metadata = {
-    title: "Contact Us | Provis Biolabs",
-    description: "Get in touch with Provis Biolabs for business enquiries, partnerships, and careers.",
+    title: "Contact Provis Biolabs | Partnerships & Business Inquiries",
+    description: "Get in touch with the Provis Biolabs team for global partnerships, pharmaceutical CDMO inquiries, career opportunities, and technical support in biotechnology.",
 };
 
 export default function ContactPage() {

@@ -134,7 +134,7 @@ export default function About() {
                             <motion.div style={{ scale: imgScale }} className="absolute inset-0">
                                 <Image
                                     src="/provis-biolabs-research-lab.webp"
-                                    alt="Provis Biolabs laboratory"
+                                    alt="Provis Biolabs Advanced Bioprocessing and Research Laboratory"
                                     fill
                                     priority
                                     sizes="(max-width: 1024px) 100vw, 50vw"

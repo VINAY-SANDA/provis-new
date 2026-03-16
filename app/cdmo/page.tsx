@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import CDMOContent from "./CDMOContent";
 
 export const metadata: Metadata = {
-    title: "CDMO Services | Provis Biolabs",
-    description: "Provis Biolabs CDMO Services. Comprehensive contract development and manufacturing from early-stage development to full-scale commercial GMP production.",
+    title: "Pharmaceutical CDMO Services & Biomanufacturing | Provis Biolabs",
+    description: "Expert Pharmaceutical CDMO Services. Provis Biolabs offers comprehensive contract development and manufacturing for biologics, from fermentation and expression to full-scale commercial GMP production.",
 };
 
 export default function CDMOPage() {

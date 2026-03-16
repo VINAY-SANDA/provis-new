@@ -140,7 +140,7 @@ export default function CareersContent() {
                         >
                             <Image
                                 src="/provis-biolabs-team-collaboration.webp"
-                                alt="Provis Biolabs Team"
+                                alt="Provis Biolabs Biopharmaceutical Team Collaboration"
                                 fill
                                 className="object-cover"
                                 priority
@@ -172,7 +172,7 @@ export default function CareersContent() {
                         >
                             <Image
                                 src="/about-lab.webp"
-                                alt="State-of-the-art Laboratory"
+                                alt="Provis Biolabs State-of-the-Art Biologics Laboratory"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
@@ -194,7 +194,7 @@ export default function CareersContent() {
                             >
                                 <Image
                                     src="/quality-lab.webp"
-                                    alt="Quality Control"
+                                    alt="Provis Biolabs Analytical Chemistry and Quality Control Lab"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />

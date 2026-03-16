@@ -23,6 +23,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${blog.title} | Provis Biolabs Insights`,
         description: blog.excerpt,
+        openGraph: {
+            title: blog.title,
+            description: blog.excerpt,
+            images: [blog.image],
+            type: 'article',
+            publishedTime: blog.date,
+            authors: ['Provis Biolabs'],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: blog.title,
+            description: blog.excerpt,
+            images: [blog.image],
+        }
     };
 }
 
@@ -38,8 +52,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         );
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: blog.title,
+        description: blog.excerpt,
+        image: `https://provisbiolabs.com${blog.image}`,
+        datePublished: blog.date,
+        author: {
+            '@type': 'Organization',
+            name: 'Provis Biolabs',
+            url: 'https://provisbiolabs.com'
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Provis Biolabs',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://provisbiolabs.com/logo.webp'
+            }
+        }
+    };
+
     return (
         <main className="min-h-screen flex flex-col pt-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Navbar />
             <div className="flex-grow">
                 <BlogPostContent blog={blog} />

@@ -93,7 +93,7 @@ export default function CDMO() {
                         >
                             <Image
                                 src="/provis-biolabs-cdmo-manufacturing-facility.webp"
-                                alt="GMP facility interior"
+                                alt="Provis Biolabs WHO-GMP Certified Biopharmaceutical Manufacturing Facility Interior"
                                 fill
                                 loading="lazy"
                                 sizes="(max-width: 1024px) 100vw, 50vw"

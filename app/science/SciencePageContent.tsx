@@ -217,7 +217,7 @@ export default function SciencePageContent() {
                                         <div className={`w-full h-40 rounded-xl mb-6 bg-gradient-to-br ${c.gradient} border border-white/5 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500`}>
                                             <Image 
                                                 src={tech.image} 
-                                                alt={tech.title}
+                                                alt={`Provis Biolabs ${tech.title} - Advanced Biotechnology`}
                                                 fill
                                                 className="object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
                                             />

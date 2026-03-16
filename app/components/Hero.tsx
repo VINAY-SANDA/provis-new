@@ -88,7 +88,7 @@ export default function Hero() {
                     ) : (
                         <Image
                             src={slides[currentSlide].src}
-                            alt="Provis Biolabs Slider Image"
+                            alt="Provis Biolabs Biopharma Solutions and Research"
                             fill
                             priority
                             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-multiply filter contrast-125"
