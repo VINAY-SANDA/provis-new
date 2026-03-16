@@ -1,12 +1,15 @@
 "use client";
-// Force re-scan for module resolution
-
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, CalendarDays, Clock, Tag, Share2 } from "lucide-react";
+import { ArrowLeft, CalendarDays, Clock, Share2, ArrowRight, FlaskConical } from "lucide-react";
+import { products } from "@/lib/data/products";
 
 export default function BlogPostContent({ blog }: { blog: any }) {
+    const relatedProductData = blog.relatedProducts
+        ? products.filter((p) => blog.relatedProducts.includes(p.slug))
+        : [];
+
     return (
         <article className="bg-[#FAFAFA] font-outfit min-h-screen pb-32">
             {/* HERO */}
@@ -80,10 +83,63 @@ export default function BlogPostContent({ blog }: { blog: any }) {
                             className="inline-flex items-center gap-2 text-[#F26522] font-bold text-sm uppercase tracking-widest hover:gap-3 transition-all">
                             <ArrowLeft className="w-4 h-4" /> Back to Blogs
                         </Link>
-                        <span className="text-[#CBD5E1] text-sm font-medium">Provis Biolabs © 2024</span>
+                        <span className="text-[#CBD5E1] text-sm font-medium">Provis Biolabs © 2025</span>
                     </div>
                 </motion.div>
             </div>
+
+            {/* RELATED PRODUCTS */}
+            {relatedProductData.length > 0 && (
+                <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-9 h-9 rounded-xl bg-[#FFF5F0] flex items-center justify-center flex-shrink-0">
+                                <FlaskConical className="w-5 h-5 text-[#F26522]" />
+                            </div>
+                            <div>
+                                <p className="text-[11px] font-bold tracking-widest uppercase text-[#94A3B8]">Explore</p>
+                                <h2 className="text-xl font-black text-[#1E3A8A]">Related Products</h2>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {relatedProductData.map((product) => (
+                                <Link
+                                    key={product.slug}
+                                    href={`/${product.slug}`}
+                                    className="group bg-white rounded-2xl border border-[#E2E8F0] p-5 hover:border-[#F26522]/40 hover:shadow-[0_8px_30px_rgba(242,101,34,0.1)] transition-all duration-300 flex flex-col gap-3"
+                                >
+                                    <div className="w-full h-24 rounded-xl overflow-hidden bg-[#F8FAFC]">
+                                        <img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-1 flex-1">
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#F26522]">
+                                            {product.grade}
+                                        </span>
+                                        <h3 className="text-sm font-bold text-[#1E3A8A] group-hover:text-[#F26522] transition-colors leading-tight">
+                                            {product.name}
+                                        </h3>
+                                        <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 mt-0.5">
+                                            {product.shortDescription}
+                                        </p>
+                                    </div>
+                                    <span className="inline-flex items-center gap-1 text-xs font-bold text-[#F26522] group-hover:gap-2 transition-all">
+                                        View Product <ArrowRight className="w-3 h-3" />
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                    </motion.div>
+                </section>
+            )}
         </article>
     );
 }

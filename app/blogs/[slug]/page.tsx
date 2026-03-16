@@ -24,12 +24,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: `${blog.title} | Provis Biolabs Insights`,
         description: blog.excerpt,
         alternates: {
-            canonical: `/blogs/${blog.slug}`
+            canonical: `/blogs/${blog.slug}`,
+            languages: {
+                'en-US': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-GB': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-SG': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-KR': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-NL': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-FR': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'en-CA': `https://provisbiolabs.com/blogs/${blog.slug}`,
+                'x-default': `https://provisbiolabs.com/blogs/${blog.slug}`,
+            }
         },
         openGraph: {
             title: blog.title,
             description: blog.excerpt,
-            images: [blog.image],
+            images: [blog.image.startsWith('http') ? blog.image : `https://provisbiolabs.com${blog.image}`],
             type: 'article',
             publishedTime: blog.date,
             authors: ['Provis Biolabs'],
@@ -38,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             card: 'summary_large_image',
             title: blog.title,
             description: blog.excerpt,
-            images: [blog.image],
+            images: [blog.image.startsWith('http') ? blog.image : `https://provisbiolabs.com${blog.image}`],
         }
     };
 }

@@ -32,6 +32,8 @@ export interface Product {
     keyFeatures?: string[];
     applications: string[];
     href: string;
+    seoTitle?: string;
+    seoDescription?: string;
     // New scientific fields
     quickSpecs?: QuickSpec;
     workflow?: string[];
@@ -40,6 +42,7 @@ export interface Product {
     technicalImages?: { url: string; caption: string }[];
     cleavageImages?: string[];
 }
+
 
 export const products: Product[] = [
     {
@@ -57,6 +60,8 @@ export const products: Product[] = [
         keyFeatures: ['High purity >99%', 'Low endotoxin levels', 'Manufactured under WHO-GMP', 'Scalable production capacity'],
         applications: ['Oncology Therapeutics', 'Clinical Research', 'Formulation Development'],
         href: '/l-asparaginase',
+        seoTitle: 'L-Asparaginase Bulk API CAS 9015-68-3 | WHO-GMP | Provis Biolabs',
+        seoDescription: 'Buy L-Asparaginase bulk API (CAS 9015-68-3) from Provis Biolabs. WHO-GMP certified, >99% purity, DMF available. Ideal for ALL oncology formulations. Request CoA & quote.',
         quickSpecs: {
             purity: '≥99%',
             molecularWeight: '~141 kDa',
@@ -88,6 +93,8 @@ export const products: Product[] = [
         keyFeatures: ['Animal-origin free (AOF)', 'Works across wide pH and temperature ranges', 'Complete nucleic acid digestion', 'High specific activity'],
         applications: ['Viral Vector Purification', 'Recombinant Protein Production', 'Vaccine Manufacturing', 'Downstream Processing'],
         href: '/provinase',
+        seoTitle: 'Provinase® Recombinant Endonuclease | Benzonase® Alternative | Provis Biolabs',
+        seoDescription: 'Order Provinase® — a GMP-grade, animal-origin-free recombinant endonuclease. A cost-effective Benzonase® alternative for host-cell DNA removal in bioproduction. Request quote.',
         quickSpecs: {
             purity: '≥99%',
             activity: '≥250 U/µL',
@@ -133,6 +140,8 @@ export const products: Product[] = [
             'X-ray crystallography'
         ],
         href: '/pngase-f',
+        seoTitle: 'PNGase F CAS 83534-39-8 | N-Glycan Release Enzyme | Provis Biolabs',
+        seoDescription: 'High-purity PNGase F (CAS 83534-39-8) for complete N-glycan removal from native or denatured glycoproteins. Research-grade, high batch consistency. Request a quote.',
         quickSpecs: {
             purity: 'Ultra-pure',
             activity: 'High',
@@ -161,6 +170,8 @@ export const products: Product[] = [
         keyFeatures: ['PEGylated formulation', 'cGMP manufacturing controls', 'Consistent batch quality', 'Enhanced circulating half-life'],
         applications: ['Oncology Therapeutics', 'Clinical Development', 'Targeted Drug Delivery'],
         href: '/pegaspargase',
+        seoTitle: 'Pegaspargase Bulk API CAS 130167-69-0 | PEGylated Asparaginase | Provis Biolabs',
+        seoDescription: 'Buy Pegaspargase bulk API (CAS 130167-69-0) from Provis Biolabs. cGMP-grade PEGylated L-Asparaginase with extended half-life for ALL treatment. DMF available.',
         quickSpecs: {
             purity: '≥99%',
             casNumber: '130167-69-0',
@@ -188,6 +199,8 @@ export const products: Product[] = [
         keyFeatures: ['High specific activity', 'Low impurity profile', 'Scalable manufacturing', 'Proven thrombolytic efficacy'],
         applications: ['Cardiovascular Therapeutics', 'Formulation Development', 'Emergency Medicine'],
         href: '/streptokinase',
+        seoTitle: 'Streptokinase Bulk API CAS 9002-01-1 | Thrombolytic Enzyme | Provis Biolabs',
+        seoDescription: 'GMP-grade Streptokinase bulk API (CAS 9002-01-1) from Provis Biolabs. High specific activity, low impurity profile, scalable manufacturing. DMF available. Request quote.',
         quickSpecs: {
             purity: '≥99%',
             casNumber: '9002-01-1',
@@ -211,6 +224,8 @@ export const products: Product[] = [
         keyFeatures: ['Controlled viscosity grades', 'Low endotoxin levels', 'Sterile process compatibility', 'Consistent molecular weight distribution'],
         applications: ['Orthopedics', 'Ophthalmics', 'Medical Devices', 'Dermatology'],
         href: '/sodium-hyaluronate',
+        seoTitle: 'Sodium Hyaluronate API CAS 9067-32-7 | Ophthalmic & Orthopedic Grade | Provis Biolabs',
+        seoDescription: 'Buy Sodium Hyaluronate API (CAS 9067-32-7) from Provis Biolabs. GMP-grade, controlled molecular weight, low endotoxin levels for orthopedic & ophthalmic formulations.',
         quickSpecs: {
             purity: 'Sterile Grade',
             casNumber: '9067-32-7',
@@ -235,6 +250,8 @@ export const products: Product[] = [
         keyFeatures: ['Animal-origin free', 'High purity', 'Excellent lot-to-lot consistency', 'Biologically identical to native human albumin'],
         applications: ['Cell Culture', 'Vaccine Formulation', 'Protein Stabilization', 'Cryopreservation'],
         href: '/recombinant-albumin',
+        seoTitle: 'Recombinant Human Albumin CAS 70024-90-7 | Animal-Origin-Free | Provis Biolabs',
+        seoDescription: 'Animal-origin-free Recombinant Human Albumin (CAS 70024-90-7). Bioprocessing-grade, >99% purity, excellent lot-to-lot consistency. Ideal BSA replacement. Request quote.',
         quickSpecs: {
             purity: '≥99%',
             casNumber: '70024-90-7',
@@ -259,6 +276,8 @@ export const products: Product[] = [
         keyFeatures: ['Recombinant source', 'USP-aligned quality', 'High activity and purity', 'Free of contaminating proteases'],
         applications: ['Cell Culture', 'Protein Processing', 'Peptide Mapping', 'Cell Therapy'],
         href: '/trypsin',
+        seoTitle: 'Recombinant Trypsin USP Grade CAS 9002-07-7 | AOF | Provis Biolabs',
+        seoDescription: 'USP-grade recombinant Trypsin (CAS 9002-07-7), animal-origin-free, for bioprocessing and cell culture. Consistent activity, zero contaminating proteases. Request quote.',
         quickSpecs: {
             activity: 'High Specific Activity',
             casNumber: '9002-07-7',
@@ -282,6 +301,8 @@ export const products: Product[] = [
         keyFeatures: ['High specificity', 'Process-ready format', 'Consistent enzyme performance', 'Stable formulation'],
         applications: ['Bioprocessing', 'Protein Characterization', 'Insulin Manufacturing'],
         href: '/carboxypeptidase-b',
+        seoTitle: 'Carboxypeptidase B CAS 9025-24-5 | Recombinant | Insulin Processing | Provis Biolabs',
+        seoDescription: 'Recombinant Carboxypeptidase B (CAS 9025-24-5) for C-terminal cleavage in insulin and biologics manufacturing. Bioprocessing-grade, high specificity. Request quote.',
         quickSpecs: {
             purity: 'High Specificity',
             casNumber: '9025-24-5',
@@ -305,6 +326,8 @@ export const products: Product[] = [
         keyFeatures: ['Strong biotin affinity', 'High purity', 'Assay-ready consistency', 'Low non-specific binding'],
         applications: ['Diagnostics', 'Molecular Biology', 'Affinity Purification', 'Microarray Development'],
         href: '/streptavidin',
+        seoTitle: 'Streptavidin CAS 9013-20-1 | High-Affinity Biotin-Binding | Provis Biolabs',
+        seoDescription: 'Ultra-pure Streptavidin (CAS 9013-20-1) with exceptional biotin affinity for diagnostics, immunoassays, and affinity purification. Low non-specific binding. Request quote.',
         quickSpecs: {
             purity: 'Lyophilized Powder',
             casNumber: '9013-20-1',
@@ -339,6 +362,8 @@ export const products: Product[] = [
             'QC testing'
         ],
         href: '/pngase-f-flash',
+        seoTitle: 'PNGase F Flash™ | Rapid 10-Minute Deglycosylation | Provis Biolabs',
+        seoDescription: 'PNGase F Flash™ completes N-glycan removal in ~10 minutes. Ideal for high-throughput mAb characterization, LC-MS peptide mapping, and biosimilar QC testing. Request quote.',
         quickSpecs: {
             activity: 'Flash Reaction',
             storage: '-20°C',
@@ -362,6 +387,8 @@ export const products: Product[] = [
         keyFeatures: ['High sequence specificity', 'Efficient cleavage performance', 'Bioprocess compatible', 'Active in diverse buffer conditions'],
         applications: ['Protein Purification', 'Recombinant Protein Workflows', 'Fusion Tag Removal'],
         href: '/enterokinase',
+        seoTitle: 'Enterokinase CAS 9014-74-8 | Fusion Tag Cleavage Enzyme | Provis Biolabs',
+        seoDescription: 'Highly sequence-specific Enterokinase (CAS 9014-74-8) for fusion tag removal in recombinant protein purification. Bioprocess-compatible, high cleavage efficiency. Request quote.',
         quickSpecs: {
             purity: 'High Specificity',
             casNumber: '9014-74-8',
@@ -386,6 +413,8 @@ export const products: Product[] = [
         keyFeatures: ['High specificity for dibasic cleavage sites', 'Animal-origin-free (AOF) production', 'Calcium-dependent enzymatic activity', 'Optimal for fusion protein maturation'],
         applications: ['Biomanufacturing', 'Fusion Protein Cleavage', 'Peptide Processing', 'Biotherapeutics Development'],
         href: '/kex2-protease',
+        seoTitle: 'Kex2 Protease CAS 77257-14-8 | Recombinant AOF | Fusion Protein Maturation | Provis Biolabs',
+        seoDescription: 'Recombinant animal-origin-free Kex2 Protease (CAS 77257-14-8). Highly specific dibasic site cleavage for biotherapeutic fusion protein maturation. Request a quote.',
         quickSpecs: {
             purity: 'High Specificity',
             casNumber: '77257-14-8',

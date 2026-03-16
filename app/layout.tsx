@@ -25,6 +25,18 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.svg',
   },
+  alternates: {
+    languages: {
+      'en-US': 'https://provisbiolabs.com',
+      'en-GB': 'https://provisbiolabs.com',
+      'en-SG': 'https://provisbiolabs.com',
+      'en-KR': 'https://provisbiolabs.com',
+      'en-NL': 'https://provisbiolabs.com',
+      'en-FR': 'https://provisbiolabs.com',
+      'en-CA': 'https://provisbiolabs.com',
+      'x-default': 'https://provisbiolabs.com',
+    }
+  }
 };
 
 export default function RootLayout({

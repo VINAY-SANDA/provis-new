@@ -15,15 +15,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     
     if (!product) return {};
     
+    const absUrl = `https://provisbiolabs.com/${product.slug}`;
+    
     return {
-        title: `${product.name} | Provis Biolabs`,
-        description: product.shortDescription,
+        title: product.seoTitle ?? `${product.name} | Provis Biolabs`,
+        description: product.seoDescription ?? product.shortDescription,
         alternates: {
-            canonical: `/${product.slug}`
+            canonical: absUrl,
+            languages: {
+                'en-US': absUrl,
+                'en-GB': absUrl,
+                'en-SG': absUrl,
+                'en-KR': absUrl,
+                'en-NL': absUrl,
+                'en-FR': absUrl,
+                'en-CA': absUrl,
+                'x-default': absUrl,
+            }
         },
         openGraph: {
-            title: product.name,
-            description: product.description,
+            title: product.seoTitle ?? product.name,
+            description: product.seoDescription ?? product.description,
             images: [product.image.startsWith('http') ? product.image : `https://provisbiolabs.com${product.image}`],
         },
     };
@@ -41,7 +53,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product.name,
-        description: product.description,
+        description: product.longDescription || product.description,
         image: product.image.startsWith('http') ? product.image : `https://provisbiolabs.com${product.image}`,
         brand: {
             '@type': 'Brand',
@@ -58,7 +70,23 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
         audience: {
             '@type': 'Audience',
             audienceType: 'B2B Pharmaceuticals and Research'
-        }
+        },
+        offers: {
+            '@type': 'Offer',
+            availability: 'https://schema.org/InStock',
+            priceCurrency: 'USD',
+            price: '0',
+            url: 'https://provisbiolabs.com/contact',
+            seller: {
+                '@type': 'Organization',
+                name: 'Provis Biolabs'
+            }
+        },
+        additionalProperty: product.keyFeatures?.map((feature) => ({
+            '@type': 'PropertyValue',
+            propertyID: 'feature',
+            value: feature
+        }))
     };
 
     const breadcrumbJsonLd = {
