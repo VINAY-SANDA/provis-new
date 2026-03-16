@@ -61,7 +61,7 @@ export default function ProductView({ product }: { product: Product }) {
                                         src={product.cleavageImages[0]}
                                         alt={`${product.name} Cleavage Diagram`}
                                         fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                        className="object-contain p-8 sm:p-12 transition-transform duration-500 group-hover:scale-[1.02]"
                                         priority
                                     />
                                 ) : (
@@ -72,7 +72,7 @@ export default function ProductView({ product }: { product: Product }) {
                                                 src={imgSrc}
                                                 alt={`${product.name} Cleavage Site ${index + 1}`}
                                                 fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                                className="object-contain p-8 transition-transform duration-500 group-hover:scale-[1.02]"
                                                 priority={index === 0}
                                             />
                                         </div>
@@ -85,7 +85,7 @@ export default function ProductView({ product }: { product: Product }) {
                                         src={product.image}
                                         alt={product.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="object-contain p-8 sm:p-12 lg:p-16 transition-transform duration-700 group-hover:scale-105"
                                         priority
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

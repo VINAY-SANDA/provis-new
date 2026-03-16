@@ -30,8 +30,36 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
         notFound();
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.name,
+        description: product.description,
+        image: `https://provisbiolabs.com${product.image}`,
+        brand: {
+            '@type': 'Brand',
+            name: 'Provis Biolabs'
+        },
+        category: product.category === 'api' ? 'Active Pharmaceutical Ingredient' : product.category === 'reagent' ? 'Bioreagent' : 'CDMO Service',
+        identifier: product.casNumber ? [
+            {
+                '@type': 'PropertyValue',
+                propertyID: 'CAS',
+                value: product.casNumber
+            }
+        ] : undefined,
+        audience: {
+            '@type': 'Audience',
+            audienceType: 'B2B Pharmaceuticals and Research'
+        }
+    };
+
     return (
         <main className="min-h-screen bg-white font-sans">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Navbar />
             <ProductView product={product} />
             <Footer />

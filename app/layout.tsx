@@ -33,6 +33,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Provis Biolabs',
+    url: 'https://provisbiolabs.com',
+    logo: 'https://provisbiolabs.com/logo.webp',
+    description: 'Provis Biolabs delivers premium bioreagents, Bio-APIs, and CDMO services to global pharmaceutical and biopharmaceutical innovators.',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Sales and Technical Support',
+      email: 'info@provisbiolabs.com',
+      availableLanguage: 'English'
+    }
+  };
+
   return (
     <html lang="en">
       <head>
@@ -43,6 +58,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body suppressHydrationWarning className={`${fontBody.variable} ${outfit.variable} font-sans antialiased text-[#475569] bg-[#FFFFFF]`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <CookieConsent />
       </body>
