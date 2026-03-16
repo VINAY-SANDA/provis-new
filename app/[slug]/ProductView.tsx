@@ -12,6 +12,13 @@ export default function ProductView({ product }: { product: Product }) {
         .filter((p) => p.category === product.category && p.id !== product.id)
         .slice(0, 3);
 
+    const categoryLinks: Record<string, string> = {
+        'api': '/products/bio-apis',
+        'reagent': '/products/recombinant-bio-reagents',
+        'cdmo': '/cdmo'
+    };
+    const categoryHref = categoryLinks[product.category] || '/products';
+
     return (
         <div className="bg-[#fcfdff] selection:bg-[#F26522]/20 min-h-screen pb-12">
             {/* Main Content Container */}
@@ -21,8 +28,8 @@ export default function ProductView({ product }: { product: Product }) {
                 <nav className="flex items-center text-[13px] font-bold tracking-widest uppercase text-gray-400 mb-8 pt-4">
                     <Link href="/products" className="hover:text-[#F26522] transition-colors">Products</Link>
                     <ChevronRight className="w-3.5 h-3.5 mx-2" />
-                    <Link href={`/products/${product.category.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-[#F26522] transition-colors line-clamp-1 max-w-[120px] sm:max-w-none">
-                        {product.category}
+                    <Link href={categoryHref} className="hover:text-[#F26522] transition-colors line-clamp-1 max-w-[120px] sm:max-w-none">
+                        {product.category === 'api' ? 'API' : product.category === 'reagent' ? 'Reagents' : product.category}
                     </Link>
                     <ChevronRight className="w-3.5 h-3.5 mx-2" />
                     <span className="text-[#1E3A8A] truncate max-w-[150px] sm:max-w-[300px]">{product.name}</span>
@@ -307,7 +314,7 @@ export default function ProductView({ product }: { product: Product }) {
                                 </h2>
                                 <p className="text-[#64748B] font-medium text-base">Explore more solutions in this category</p>
                             </div>
-                            <Link href={`/products/${product.category.toLowerCase().replace(/\s+/g, '-')}`} className="group hidden sm:flex items-center text-sm font-bold text-[#F26522] py-3 px-6 rounded-2xl border-2 border-[#FFF5F0] bg-white hover:bg-[#FFF5F0] hover:border-[#F26522]/20 transition-all shadow-sm">
+                            <Link href={categoryHref} className="group hidden sm:flex items-center text-sm font-bold text-[#F26522] py-3 px-6 rounded-2xl border-2 border-[#FFF5F0] bg-white hover:bg-[#FFF5F0] hover:border-[#F26522]/20 transition-all shadow-sm">
                                 View All Category
                                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                             </Link>
