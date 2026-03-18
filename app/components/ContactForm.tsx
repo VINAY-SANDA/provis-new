@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Send } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Send, Loader2 } from 'lucide-react';
 
 interface ContactFormProps {
     prefilledInterest?: string;
@@ -10,32 +10,62 @@ interface ContactFormProps {
 export default function ContactForm({ prefilledInterest = "" }: ContactFormProps) {
     const [status, setStatus] = useState<'' | 'success' | 'error'>('');
     const [interest, setInterest] = useState(prefilledInterest);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const submittingRef = useRef(false); // prevents duplicate submissions
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // Guard against duplicate clicks
+        if (submittingRef.current) return;
+        submittingRef.current = true;
+        setIsSubmitting(true);
+        setStatus('');
+
         try {
-            const formData = new FormData(e.currentTarget);
-            // Connect to your actual Formspree/Resend endpoint here
-            await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            const form = e.currentTarget;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const response = await fetch('/api/contact', {
                 method: 'POST',
-                body: formData,
-                headers: {
-                    Accept: 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
             });
-            setStatus('success');
-            setTimeout(() => setStatus(''), 5000);
-            e.currentTarget.reset();
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatus('success');
+                setInterest(prefilledInterest || "");
+                form.reset();
+            } else {
+                console.error('API Error:', result.errors);
+                setStatus('error');
+            }
         } catch (error) {
+            console.error('Submission error:', error);
             setStatus('error');
+        } finally {
+            setIsSubmitting(false);
+            submittingRef.current = false;
+            setTimeout(() => setStatus(''), 7000);
         }
     };
 
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             {status === 'success' && (
-                <div className="p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 font-sans">
-                    Thank you for your message. We will get back to you shortly.
+                <div className="p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 font-sans shadow-sm flex items-center gap-3">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    <strong>Success!</strong> Thank you for your message. We will get back to you shortly.
+                </div>
+            )}
+
+            {status === 'error' && (
+                <div className="p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 font-sans shadow-sm flex items-center gap-3">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <strong>Error.</strong> Something went wrong. Please try again or email us directly at bd@provisbiolabs.com.
                 </div>
             )}
 
@@ -123,9 +153,14 @@ export default function ContactForm({ prefilledInterest = "" }: ContactFormProps
 
             <button
                 type="submit"
-                className="group w-full bg-gradient-to-r from-[#F26522] to-[#FF8C55] hover:opacity-90 text-white font-bold text-lg rounded-xl py-4 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#F26522]/20"
+                disabled={isSubmitting}
+                className={`group w-full bg-gradient-to-r from-[#F26522] to-[#FF8C55] hover:opacity-90 text-white font-bold text-lg rounded-xl py-4 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#F26522]/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-                Send Message <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                {isSubmitting ? (
+                    <>Sending... <Loader2 className="w-5 h-5 animate-spin" /></>
+                ) : (
+                    <>Send Message <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                )}
             </button>
         </form>
     );
